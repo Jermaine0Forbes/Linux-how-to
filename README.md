@@ -29,7 +29,7 @@
 ##chmod
 	-change file mode bits
 	- How to use chmod:
-		-http://www.thegeekstuff.com/2010/06/chmod-command-examples
+		-[examples](http://www.thegeekstuff.com/2010/06/chmod-command-examples)
 	
 ##wget
 	- Wget is a free utility for non-interactive download of files from
