@@ -27,9 +27,9 @@
 	-change file owner and group
 
 ##chmod
-	-change file mode bits
-	- How to use chmod:
-		-[examples](http://www.thegeekstuff.com/2010/06/chmod-command-examples)
+-change file mode bits
+- How to use chmod:
+-[examples](http://www.thegeekstuff.com/2010/06/chmod-command-examples)
 	
 ##wget
 	- Wget is a free utility for non-interactive download of files from
