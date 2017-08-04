@@ -1,35 +1,76 @@
-#Linux/Ubuntu Commands
+# Ubuntu How To
 ---------------------------
 ---------------------------
+- [how to set up a server with ubuntu][setup]
+
+[setup]:#how-to-set-up-a-server-with-ubuntu
+[home]:#ubuntu-how-to
+
+##  how to set up a server with ubuntu
+1. ssh into your server
+```
+	ssh root@your_server_ip
+```
+2. add a new user
+```
+	adduser jermaine
+```
+3. give root privileges to your new user
+```
+	usermod -aG sudo jermaine
+```
+4. switch to the user account
+```
+	su - jermaine
+```
+5. Create an ssh directory and authorized_keys file in the user account
+```
+	mkdir ~/.ssh
+	chmod 700 ~/.ssh
+	nano ~/.ssh/authorized_keys
+```
+6. add the public key by using cat command to display it
+```
+	//Personal Computer
+	cat ~/.ssh/id_rsa.pub
+
+	ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAA...
 
 
-##sudo
-- The SuperUserDo is the most important command Linux newbies will use.
-	  Every single command that needs root's permission, needs this command
+	// Inside authorized_keys file
 
-##apt-get
-- to install, remove and upgrade any package we've Advanced Packaging Tool (APT) package manager. 
-	The apt-get command will help you installing the software you need to run in your Linux. 
+	ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAA...
 
-##adduser <insert name>
-- add a user or group to the system
+```
+7. restrict the permissions of the authorized_keys, and exit out of user account
+```
+	chmod 600 ~/.ssh/authorized_keys
 
-##gpasswd -a <insert user name> sudo
+	exit
+```
 
-##su <insert user name>
-- change user ID or become superuser
+8. open up ssh configuration
+```
+	sudo nano /etc/ssh/sshd_config
+```
+9. make sure all these options have these values, then reload
+```
+	PasswordAuthentication no
+	PubkeyAuthentication yes
+	ChallengeResponseAuthentication no
 
-##exit
-- cause normal process termination
+	sudo systemctl reload sshd
+```
 
+10. set up basic firewall
+```
+	sudo ufw allow OpenSSH
 
-##chown
-- change file owner and group
+	sudo ufw enable
 
-##chmod
-- change file mode bits
-- How to use chmod:
-	* [chmod command examples](http://www.thegeekstuff.com/2010/06/chmod-command-examples)
-	
-##wget
-- Wget is a free utility for non-interactive download of files from the Web.
+	sudo ufw status
+
+```
+11. and I think that is it
+
+[go back home][home]

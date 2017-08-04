@@ -34,3 +34,56 @@ Linux/Ubuntu Commands
 ##wget
 	- Wget is a free utility for non-interactive download of files from
        the Web.
+
+##sudo nginx -t
+- checks if nginx has any errors
+
+##sudo ln -s
+- Links one path to another path?
+
+##sudo service nginx restart
+- Restarts nginx
+
+##sudo service apache2 restart
+- Restarts apache
+
+##sudo service apache2 status
+- Checks the status of apache
+
+##sudo chown -R yourusername:yourgroupname <insert path>
+-  Changes the ownerships of files of files and folders
+
+
+##sudo -s
+##passwd
+	- changes password of login?
+	
+##sudo a2dissite 000-default.conf
+- disables sites for apache default.conf
+
+## sudo netstat -tlpn
+-looks at where all the ports are being listened on?
+
+##sudo rm -rf folderName
+- Removes folder and files from ... shit
+- http://bit.ly/2oimiSH
+
+=============================================================================	   
+How to
+
+
+How to setup the server
+	http://do.co/2fY67lv
+
+How to restart php-fpm
+http://serverfault.com/questions/189940/how-do-you-restart-php-fpm
+
+How to display line number in vim
+http://vim.wikia.com/wiki/Display_line_numbers
+
+How to resolve sudo systemctl reload nginx/ or restart nginx
+http://bit.ly/2nCYnvK
+
+Install Git
+http://do.co/1Q1TViS
+
