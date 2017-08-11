@@ -4,6 +4,8 @@
 - [how to set up a server with ubuntu][setup]
 - [how to install node.js on ubuntu][node]
 - [how to install nvm/ or update node][nvm]
+- [how to use grep][grep]
+- [how to enable certain ports][enablePort]
 
 [nvm]:#how-to-install-nvm-or-update-node
 [node]:#how-to-install-node.js-on-ubuntu
@@ -12,6 +14,7 @@
 
 ## how to install nvm/ or update node
 - Either do one or the other
+- [here is the repository](https://github.com/creationix/nvm)
 ```
 	curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.2/install.sh | bash
 ```
