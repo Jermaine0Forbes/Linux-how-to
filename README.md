@@ -2,9 +2,60 @@
 ---------------------------
 ---------------------------
 - [how to set up a server with ubuntu][setup]
+- [how to install node.js on ubuntu][node]
+- [how to install nvm/ or update node][nvm]
 
+[nvm]:#how-to-install-nvm-or-update-node
+[node]:#how-to-install-node.js-on-ubuntu
 [setup]:#how-to-set-up-a-server-with-ubuntu
 [home]:#ubuntu-how-to
+
+## how to install nvm/ or update node
+- Either do one or the other
+```
+	curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.2/install.sh | bash
+```
+### OR
+```
+	wget -qO- https://raw.githubusercontent.com/creationix/nvm/v0.33.2/install.sh | bash
+```
+- then close the terminal and go back into it again. And check to see if it is working
+```
+	exit
+
+	// once you go back into the terminal
+
+	nvm -v
+```
+the nvm should change node and npm to the most recent version.
+
+
+## how to install node.js on ubuntu
+1. install node and npm with apt-get
+```
+	sudo apt-get update
+	sudo apt-get install nodejs
+	sudo apt install nodejs-legacy
+	sudo apt-get install npm
+```
+
+2. install node with PPA(personal package archive)
+```
+	cd ~
+	curl -sL https://deb.nodesource.com/setup_<insert node.js version> -o nodesource_setup.sh
+
+	// you can check the contents of the setup like this
+	nano nodesource_setup.sh
+```
+- then run the setup
+```
+	sudo bash nodesource_setup.sh
+```
+- next add this shit
+```
+	sudo apt-get install nodejs
+	sudo apt-get install build-essential
+```
 
 ##  how to set up a server with ubuntu
 1. ssh into your server

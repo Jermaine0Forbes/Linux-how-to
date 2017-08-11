@@ -42,9 +42,6 @@ Every single command that needs root's permission, needs this command
 ### passwd
 	- changes password of login?
 
-
-
-
 ### sudo netstat -tlpn
 -looks at where all the ports are being listened on?
 
