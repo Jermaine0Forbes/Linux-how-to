@@ -1,24 +1,192 @@
 # Ubuntu How To
----------------------------
----------------------------
+
+## stuff I need to do eventually
+
+- [how to enable certain ports][enablePort]
+- [how to add a new user][newUser]
+- [how to use chmod][chmod]
+- [how to use nano editor][nano]
+- [how to use vim editor][vim]
+
+- [how to set up wordpress][wordpress]
 - [how to set up a server with ubuntu][setup]
 - [how to install node.js on ubuntu][node]
 - [how to install nvm/ or update node][nvm]
 - [how to use grep][grep]
-- [how to enable certain ports][enablePort]
 
+[wordpress]:#how-to-set-up-wordpress
+[grep]:#how-to-use-grep
 [nvm]:#how-to-install-nvm-or-update-node
 [node]:#how-to-install-node.js-on-ubuntu
 [setup]:#how-to-set-up-a-server-with-ubuntu
 [home]:#ubuntu-how-to
 
+## how to set up wordpress
+
+1. log into mysql and type this into the terminal
+
+```mysql
+	CREATE DATABASE wordpress DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci;
+```
+2. create a user specifically for wordpress and type
+
+```mysql
+	GRANT ALL ON wordpress.* TO 'wordpressuser'@'localhost' IDENTIFIED BY 'password';
+	FLUSH PRIVILEGES;
+	EXIT;
+```
+3. install the additional php extensions
+
+```
+	sudo apt-get update
+	sudo apt-get install php-curl php-gd php-mbstring php-mcrypt php-xml php-xmlrpc
+	sudo systemctl restart apache2
+```
+4. go into apache2.conf file to allow htaccess overrides
+
+```
+	sudo nano /etc/apache2/apache2.conf
+
+	// add this into the file
+
+	<Directory /var/www/html/>
+    	AllowOverride All
+	</Directory>
+```
+5. enable the changes and restart apache2
+
+```
+	sudo a2enmod rewrite
+	sudo apache2ctl configtest
+	sudo systemctl restart apache2
+```
+6. download wordpress and unzip it
+
+```
+	cd /tmp
+	curl -O https://wordpress.org/latest.tar.gz
+	tar xzvf latest.tar.gz
+```
+7.  do some shit with wordpress
+
+```
+	touch /tmp/wordpress/.htaccess
+	chmod 660 /tmp/wordpress/.htaccess
+	cp /tmp/wordpress/wp-config-sample.php /tmp/wordpress/wp-config.php
+	mkdir /tmp/wordpress/wp-content/upgrade
+	sudo cp -a /tmp/wordpress/. /var/www/html
+```
+8. configure wordpress
+
+```
+	sudo chown -R yourName:www-data /var/www/html
+	sudo find /var/www/html -type d -exec chmod g+s {} \;
+	sudo chmod g+w /var/www/html/wp-content
+	sudo chmod -R g+w /var/www/html/wp-content/themes
+	sudo chmod -R g+w /var/www/html/wp-content/plugins
+```
+
+9. creating keys and passwords
+```
+	// copy the printed keys
+	curl -s https://api.wordpress.org/secret-key/1.1/salt/
+
+	sudo nano /var/www/html/wp-config.php
+
+	// place the printed keys in the file
+	// and add in the database information  like this
+
+	define('DB_NAME', 'wordpress');
+
+	/** MySQL database username */
+	define('DB_USER', 'wordpressuser');
+
+	/** MySQL database password */
+	define('DB_PASSWORD', 'password');
+
+	. . .
+
+	define('FS_METHOD', 'direct');
+```
+10. Setup the apache server to host the wordpress, and then you are done
+
+[go back home][home]
+
+## how to use grep
+- Alright so the grep keyword searches through any file  that contains the string
+or words that you are looking for.
+- **grep does not** : search a folder it only searches what a specific file, or
+the files that are in the current directory/folder
+
+```
+	 grep "some word" /path/to/file
+```
+### search all files in each directory
+
+```
+	grep -r  "some word" /path/to/file
+
+	//Note: it will search every file and every file in each folder
+```
+
+### how to print out all the files that contain the search word
+
+```
+	grep -l "some word" /path/to/file
+
+```
+
+### grep ignoring word casing
+
+```
+	grep -i "some word" /path/to/file
+
+	// Note: so it will search for the word whether it be uppercase, lowercase, ect..
+```
+
+### searching the exact word
+
+```
+	grep -w "some word" /path/to/file
+```
+
+### search for two different words
+
+```
+	egrep "word1|word2" /path/to/file
+
+	// Note: you can only search two different phrases or words, not three of more
+```
+
+### count a number of times the word has come up
+
+```
+	grep -c "some word" /path/to/file
+```
+
+### show the line number where word has been matched
+
+```
+	grep -n "some word" /path/to/file
+```
+
+### ignore the search word, but print out the rest of content of the file
+
+```
+	grep -v "some word" /path/to/file
+```
+
+[go back home][home]
+
 ## how to install nvm/ or update node
 - Either do one or the other
 - [here is the repository](https://github.com/creationix/nvm)
+
 ```
 	curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.2/install.sh | bash
 ```
 ### OR
+
 ```
 	wget -qO- https://raw.githubusercontent.com/creationix/nvm/v0.33.2/install.sh | bash
 ```
@@ -31,6 +199,8 @@
 	nvm -v
 ```
 the nvm should change node and npm to the most recent version.
+
+[go back home][home]
 
 
 ## how to install node.js on ubuntu
@@ -59,6 +229,8 @@ the nvm should change node and npm to the most recent version.
 	sudo apt-get install nodejs
 	sudo apt-get install build-essential
 ```
+[go back home][home]
+
 
 ##  how to set up a server with ubuntu
 1. ssh into your server
