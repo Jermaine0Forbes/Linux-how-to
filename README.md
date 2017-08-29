@@ -229,6 +229,25 @@ the nvm should change node and npm to the most recent version.
 	sudo apt-get install nodejs
 	sudo apt-get install build-essential
 ```
+
+### OR
+1. install node version manager
+
+```
+	sudo apt-get update
+	wget -qO- https://raw.githubusercontent.com/creationix/nvm/v0.33.2/install.sh | bash
+	exit
+
+
+
+```
+2. log back in and install node
+
+```
+	nvm -v
+	nvm install node
+```
+
 [go back home][home]
 
 
@@ -252,8 +271,8 @@ the nvm should change node and npm to the most recent version.
 5. Create an ssh directory and authorized_keys file in the user account
 ```
 	mkdir ~/.ssh
-	chmod 700 ~/.ssh
-	nano ~/.ssh/authorized_keys
+	sudo chmod 700 ~/.ssh
+	sudo nano ~/.ssh/authorized_keys
 ```
 6. add the public key by using cat command to display it
 ```
@@ -270,7 +289,11 @@ the nvm should change node and npm to the most recent version.
 ```
 7. restrict the permissions of the authorized_keys, and exit out of user account
 ```
-	chmod 600 ~/.ssh/authorized_keys
+	sudo chmod 600 ~/.ssh/authorized_keys
+
+	// might have to possibly enter this as well
+		sudo chmod jermaine -R ~/.ssh
+	// end
 
 	exit
 ```
@@ -286,6 +309,10 @@ the nvm should change node and npm to the most recent version.
 	ChallengeResponseAuthentication no
 
 	sudo systemctl reload sshd
+
+	// might have to possibly enter this as well
+		sudo service sshd restart
+	// end
 ```
 
 10. set up basic firewall
