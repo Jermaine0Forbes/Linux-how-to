@@ -20,7 +20,7 @@
 [wordpress]:#how-to-set-up-wordpress
 [grep]:#how-to-use-grep
 [nvm]:#how-to-install-nvm-or-update-node
-[node]:#how-to-install-node.js-on-ubuntu
+[node]:#how-to-install-nodejs-on-ubuntu
 [setup]:#how-to-set-up-a-server-with-ubuntu
 [home]:#ubuntu-how-to
 
