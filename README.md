@@ -2,24 +2,93 @@
 
 ## stuff I need to do eventually
 
-- [how to enable certain ports][enablePort]
 - [how to add a new user][newUser]
 - [how to use chmod][chmod]
 - [how to use nano editor][nano]
 - [how to use vim editor][vim]
-
+--------------------------------------------
+- [how to setup a local host file][local]
+- [how to enable certain ports][enablePort]
 - [how to set up wordpress][wordpress]
 - [how to set up a server with ubuntu][setup]
 - [how to install node.js on ubuntu][node]
 - [how to install nvm/ or update node][nvm]
 - [how to use grep][grep]
 
+[local]:#how-to-setup-a-local-host-file
+[enablePort]:#how-to-enable-certain-ports
 [wordpress]:#how-to-set-up-wordpress
 [grep]:#how-to-use-grep
 [nvm]:#how-to-install-nvm-or-update-node
 [node]:#how-to-install-node.js-on-ubuntu
 [setup]:#how-to-set-up-a-server-with-ubuntu
 [home]:#ubuntu-how-to
+
+## how to setup a local host file
+this is great for setting creating a websites or at least developing it without
+having to buy a domain ... for now . This is essentially working apache for the
+most part and then using your personal computer
+
+1. create a conf file for apache
+```
+sudo cp /etc/apache2/sites-available/000-default.conf  /etc/apache2/sites-available/test.conf
+sudo nano /etc/apache2/sites-available/test.conf
+
+// in the test.conf file, add the ServerName test.com and close the file
+
+<VirtualHost *:80>
+        ServerAdmin webmaster@localhost
+        DocumentRoot /home/jermaine/test
+        ServerName test.com
+        <Directory /home/jermaine/test/>
+            Options Indexes FollowSymLinks
+            AllowOverride All
+            Require all granted
+        </Directory>
+
+        ErrorLog ${APACHE_LOG_DIR}/error.log
+        CustomLog ${APACHE_LOG_DIR}/access.log combined
+
+        <IfModule mod_dir.c>
+            DirectoryIndex index.php index.pl index.cgi index.html index.xhtml index.htm
+        </IfModule>
+
+</VirtualHost>
+
+```
+
+2. next enable the site
+
+```
+sudo a2ensite test.conf
+
+sudo service apache2 reload
+```
+
+3. now, go to your personal and run notepad as an administrator
+
+4. once in notepad, open a file to the path `C:\Windows\System32\drivers\etc\hosts`
+
+5. now in the hosts file insert your vps ip address and the ServerName
+
+```
+111.111.111.111 test.com
+```
+
+6. and that is about it.
+
+[go back home][home]
+
+## how to enable certain ports
+This is pretty easy you just type in one command
+
+```
+ sudo ufw allow enterPortNumber
+```
+**reference**
+[firewall](https://help.ubuntu.com/lts/serverguide/firewall.html)
+
+[go back home][home]
 
 ## how to set up wordpress
 
@@ -292,8 +361,8 @@ the nvm should change node and npm to the most recent version.
 	sudo chmod 600 ~/.ssh/authorized_keys
 
 	// might have to possibly enter this as well
-		sudo chmod jermaine -R ~/.ssh
-	// end
+		sudo chown jermaine -R ~/.ssh
+
 
 	exit
 ```
@@ -312,7 +381,6 @@ the nvm should change node and npm to the most recent version.
 
 	// might have to possibly enter this as well
 		sudo service sshd restart
-	// end
 ```
 
 10. set up basic firewall
