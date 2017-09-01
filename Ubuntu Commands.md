@@ -31,7 +31,7 @@ Every single command that needs root's permission, needs this command
 	- https://askubuntu.com/questions/40850/how-can-i-become-the-owner-of-a-file-folder-that-root-owns/40854
 
 ### chmod
-	-change file mode bits
+	- change file mode bits
 	- How to use chmod:
 		-http://www.thegeekstuff.com/2010/06/chmod-command-examples
 

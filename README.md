@@ -7,6 +7,7 @@
 - [how to use nano editor][nano]
 - [how to use vim editor][vim]
 --------------------------------------------
+- [how to setup laravel][laravel]
 - [how to setup a local host file][local]
 - [how to enable certain ports][enablePort]
 - [how to set up wordpress][wordpress]
@@ -15,6 +16,7 @@
 - [how to install nvm/ or update node][nvm]
 - [how to use grep][grep]
 
+[laravel]:#how-to-setup-laravel
 [local]:#how-to-setup-a-local-host-file
 [enablePort]:#how-to-enable-certain-ports
 [wordpress]:#how-to-set-up-wordpress
@@ -23,6 +25,52 @@
 [node]:#how-to-install-nodejs-on-ubuntu
 [setup]:#how-to-set-up-a-server-with-ubuntu
 [home]:#ubuntu-how-to
+
+## how to setup laravel
+```
+sudo apt-get update upgrade
+
+sudo apt-get install git zip
+
+sudo apt-get install curl php-curl php-mcrypt php-mbstring php-gettext
+
+sudo phpenmod mcrypt; sudo phpenmod mbstring; sudo a2enmod rewrite
+
+sudo service apache2 restart
+
+curl -sS https://getcomposer.org/installer | php
+
+sudo mv composer.phar /usr/local/bin/composer
+
+composer create-project laravel/laravel your-project --prefer-dist
+
+sudo cp /etc/apache2/sites-available/000-default.conf /etc/apache2/sites-available/laravel.conf
+
+sudo nano laravel.conf
+
+// inside laravel.conf
+<VirtualHost *:80>
+        ServerName work.com
+        DocumentRoot /var/www/html/your-project/public
+
+        <Directory /var/www/html/your-project/public>
+            AllowOverride All
+            Require all granted
+        </Directory>
+</VirtualHost>
+
+sudo a2ensite laravel.conf; sudo service apache2 reload
+
+cd your-project
+
+sudo chmod -R 755 ./; sudo chmod -R o+w ./storage
+
+```
+**reference**
+- [Install laravel 5 on Ubuntu 16.04](https://askubuntu.com/questions/764782/install-laravel-5-on-ubuntu-16-04)
+- [Installing Laravel PHP Framework on Ubuntu](https://www.howtoforge.com/tutorial/install-laravel-on-ubuntu-for-apache/)
+
+[go back home][home]
 
 ## how to setup a local host file
 this is great for setting creating a websites or at least developing it without
