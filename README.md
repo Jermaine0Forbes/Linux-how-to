@@ -4,6 +4,7 @@
 
 - [how to add a new user][newUser]
 - [how to use chmod][chmod]
+- [how to use chown][chown]
 - [how to use nano editor][nano]
 - [how to use vim editor][vim]
 --------------------------------------------
@@ -15,7 +16,9 @@
 - [how to install node.js on ubuntu][node]
 - [how to install nvm/ or update node][nvm]
 - [how to use grep][grep]
+- [how to use find][find]
 
+[find]:#how-to-use-find
 [laravel]:#how-to-setup-laravel
 [local]:#how-to-setup-a-local-host-file
 [enablePort]:#how-to-enable-certain-ports
@@ -25,6 +28,168 @@
 [node]:#how-to-install-nodejs-on-ubuntu
 [setup]:#how-to-set-up-a-server-with-ubuntu
 [home]:#ubuntu-how-to
+
+## how to use find
+the find command tries to find a specific file that is in a specific location
+
+**reference**
+- [25 ways to use the find command](http://www.binarytides.com/linux-find-command-examples/)
+
+
+
+**finds name of file in specific path**
+```
+find ./images -name "dog.jpg"
+// prints out the path to dog.jpg, for example
+
+./images/animals/dog.jpg
+
+
+// AND, you can find files by their extension name
+
+find ./images -name "*.jpg"
+
+.images/animals/dog.jpg
+.images/furniture/chair.jpg
+.images/entertainment/nudes.jpg
+
+```
+**finds name of files and ignores the casing**
+```
+find ./music -iname 'BLUe*'
+
+./music/I am having a blue day.mp3
+./music/Blueberry dreams.mp3
+./music/sad and blue.mp3
+```
+**limits the depth of directory traversal**
+```
+find ./img  -maxdepth 2 -iname "*.png"
+./img/eat.png
+./img/alphabet/a.png
+./img/anatomy/dick.png
+
+find ./img  -maxdepth 3 -iname "*.png"
+
+./img/eat.png
+./img/alphabet/a.png
+./img/anatomy/dick.png
+./img/anatomy/bones/femur.png
+./img/alphabet/chinese/chingchong.png
+
+
+```
+[go back home][home]
+
+**excludes the name or file extension**
+```
+find ./public
+style.css
+image.jpg
+base.js
+
+find ./public ! -name "*.js"
+style.css
+image.jpg
+
+```
+**combine multiple queries**
+```
+find ./images -name "*.gif"
+./images/find.gif
+./images/the.gif
+
+find ./images -name "*.gif" ! -name "*e"
+./images/find.gif
+
+// Note: the query results will only print out the files that match all the queries
+```
+
+**OR**
+```
+find -name '*.php' -o -name '*.txt'
+./abc.txt
+./subdir/how.php
+./abc.php
+./cool.php
+
+// Note: the query results will print out anything that matches the multiple queries
+```
+[go back home][home]
+
+**Search only files or only directories**
+```
+find ./test -name abc*
+./test/abc.txt
+./test/abc
+
+Only files
+
+find ./test -type f -name "abc*"
+./test/abc.txt
+
+Only directories
+
+find ./test -type d -name "abc*"
+./test/abc
+```
+
+**Find files belonging to particular user**
+```
+find . -user bob
+.
+./abc.txt
+./abc
+./subdir
+./subdir/how.php
+./abc.php
+```
+**Search files belonging to group**
+```
+find /var/www -group developer
+```
+**Find files accessed in last N days**
+```
+find / -atime 50
+// shows the days which is 50
+```
+
+
+[go back home][home]
+
+**Find files belonging to particular user**
+```
+ find . -user root
+.
+./abc.txt
+./abc
+./subdir
+./subdir/how.php
+./abc.php
+```
+
+**Find files in a size range**
+```
+find / -size +50M -size -100M
+
+// Different file sizes
+ G - gigabytes
+ M - megabytes
+ k - kilobytes
+ b - bytes
+```
+
+**Find files with certain permissions**
+```
+find . -type f -perm 0664
+./abc.txt
+./subdir/how.php
+./abc.php
+./cool.php
+
+```
+
+[go back home][home]
 
 ## how to setup laravel
 ```
