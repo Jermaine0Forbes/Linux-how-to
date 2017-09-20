@@ -1,13 +1,13 @@
-# Ubuntu How To
+# Linux How To
 
 ## stuff I need to do eventually
 
 - [how to add a new user][newUser]
-- [how to use chmod][chmod]
 - [how to use chown][chown]
 - [how to use nano editor][nano]
 - [how to use vim editor][vim]
 --------------------------------------------
+- [how to use chmod][chmod]
 - [how to setup laravel][laravel]
 - [how to setup a local host file][local]
 - [how to enable certain ports][enablePort]
@@ -18,6 +18,7 @@
 - [how to use grep][grep]
 - [how to use find][find]
 
+[chmod]:#how-to-use-chmod
 [find]:#how-to-use-find
 [laravel]:#how-to-setup-laravel
 [local]:#how-to-setup-a-local-host-file
@@ -28,6 +29,55 @@
 [node]:#how-to-install-nodejs-on-ubuntu
 [setup]:#how-to-set-up-a-server-with-ubuntu
 [home]:#ubuntu-how-to
+
+## how to use chmod
+
+**reference**
+- [chmod](https://en.wikipedia.org/wiki/Chmod)
+- [7 chmod command examples for beginners](http://www.thegeekstuff.com/2010/06/chmod-command-examples/)
+
+#|Permission|rwx
+-|-|-
+7|read,write, and execute|rwx
+6|read and write|rw-
+5|read and execute|r-x
+4|read only|r--
+3|write and execute|-wx
+2|write only|-w-
+1|execute only|--x
+0|none|---
+
+Reference|Class|Description
+-|-|-
+u|owner|file's owner
+g|group|users who are members of the file's group
+o|others|users who are neither the file's owner nor members of the file's group
+a|all|all three of the above, same as ugo
+
+Operator|Description
+-|-
++|adds the specified modes to the specified classes
+-|removes the specified modes from the specified classes
+=|the modes specified are to be made the exact modes for the specified classes
+
+Mode|Name|Description
+-|-|-
+r|read|read a file or list a directory's contents
+w|write|write to a file or directory
+x|execute|execute a file or recurse a directory tree
+X|special execute|which is not a permission in itself but rather can be used instead of x. It applies execute permissions to directories regardless of their current permissions and applies execute permissions to a file which already has at least one execute permission bit already set (either owner, group or other). It is only really useful when used with '+' and usually in combination with the -R option for giving group or other access to a big directory tree without setting execute permission on normal files (such as text files), which would normally happen if you just used "chmod -R a+rx .", whereas with 'X' you can do "chmod -R a+rX ." instead
+s|setuid/gid| special permissions
+t|sticky| special permissions
+
+### FAQ
+
+What does execute do?
+
+
+
+### examples
+
+[go back home ][home]
 
 ## how to use find
 the find command tries to find a specific file that is in a specific location
