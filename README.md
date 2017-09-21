@@ -36,6 +36,8 @@
 - [chmod](https://en.wikipedia.org/wiki/Chmod)
 - [7 chmod command examples for beginners](http://www.thegeekstuff.com/2010/06/chmod-command-examples/)
 
+### numerical permissions
+
 #|Permission|rwx
 -|-|-
 7|read,write, and execute|rwx
@@ -47,6 +49,8 @@
 1|execute only|--x
 0|none|---
 
+### reference table
+
 Reference|Class|Description
 -|-|-
 u|owner|file's owner
@@ -54,11 +58,15 @@ g|group|users who are members of the file's group
 o|others|users who are neither the file's owner nor members of the file's group
 a|all|all three of the above, same as ugo
 
+### operator table
+
 Operator|Description
 -|-
 +|adds the specified modes to the specified classes
 -|removes the specified modes from the specified classes
 =|the modes specified are to be made the exact modes for the specified classes
+
+### mode table
 
 Mode|Name|Description
 -|-|-
@@ -71,11 +79,54 @@ t|sticky| special permissions
 
 ### FAQ
 
-What does execute do?
+**What does execute do?**
+So there are certain words that if you type in the terminal will 
+execute a function. Essentially they are commands, so if you remove the permission 
+of execute it will not a script that can run a command. Here is a little trick
+I learned, if you create a file like `touch run`. This will will create a 
+file called run, next you should open the file and insert ` ls -la`. Save the
+file and insert the file the terminal to execute the command ` ./run` 
+this should run the ls -la command. If you remove the execute permission it
+will not work... at least I think
+
+
+**What does the mode 's' do?**
+
+
+
 
 
 
 ### examples
+```
+-rwxr-xr-x 14 jermaine jermaine 4.0K Sep  4 18:00 filename.txt
+
+// gives permission to read and write to the owner and group
+chmod 660 filename.txt
+-rw-rw---- filename.txt
+
+
+// owner: read,write, and execute
+// group: read,write, and execute
+// others: read and write
+chmod 776 filename.txt
+-rwxrwxrw- filename.txt
+
+
+
+// owner: write
+// group: write
+// others: write
+chmod a+w filename.txt
+--w--w--w- filename.txt
+
+//-rw--w--w- filename.txt
+chmod u=o filename.txt
+//-rw--w-rw- filename.txt
+
+
+```
+
 
 [go back home ][home]
 
