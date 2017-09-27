@@ -2,11 +2,14 @@
 
 ## stuff I need to do eventually
 
-- [how to add a new user][newUser]
 - [how to use chown][chown]
 - [how to use nano editor][nano]
 - [how to use vim editor][vim]
 --------------------------------------------
+
+- [how to switch to a different user][switchUser]
+- [how to add a new user][newUser]
+- [how to create an ssl certificate][ssl]
 - [how to use chmod][chmod]
 - [how to setup laravel][laravel]
 - [how to setup a local host file][local]
@@ -18,6 +21,9 @@
 - [how to use grep][grep]
 - [how to use find][find]
 
+[switchUser]:#how-to-switch-to-a-different-user
+[newUser]:#how-to-add-a-new-user
+[ssl]:#how-to-create-an-ssl-certificate
 [chmod]:#how-to-use-chmod
 [find]:#how-to-use-find
 [laravel]:#how-to-setup-laravel
@@ -29,6 +35,57 @@
 [node]:#how-to-install-nodejs-on-ubuntu
 [setup]:#how-to-set-up-a-server-with-ubuntu
 [home]:#ubuntu-how-to
+
+## how to switch to a different user
+
+```
+su - <insert name>
+```
+[go back home][home]
+
+## how to add a new user
+
+```
+sudo adduser <insert name>
+```
+[go back home][home]
+
+## how to create an ssl certificate
+
+**reference**
+- [How To Secure Apache with Let's Encrypt on Ubuntu 14.04](https://www.digitalocean.com/community/tutorials/how-to-secure-apache-with-let-s-encrypt-on-ubuntu-14-04)
+
+### how to use "Let's Encrypt" to perform SSL certification
+
+1. download Let's Encrypt
+```
+sudo add-apt-repository ppa:certbot/certbot
+
+sudo apt-get update
+
+sudo apt-get install python-certbot-apache
+```
+
+2. set up the SSL certificate
+```
+sudo certbot --apache -d example.com
+
+// if you want to certify multiple domains
+sudo certbot --apache -d example.com -d www.example.com
+```
+
+3. setup auto renewal
+
+```
+sudo crontab -e
+
+//in the text editor add this
+15 3 * * * /usr/bin/certbot renew --quiet
+
+// At 3:15am the certbot will check if the certificates need to be renewed
+```
+
+[go back home][home]
 
 ## how to use chmod
 
@@ -80,12 +137,12 @@ t|sticky| special permissions
 ### FAQ
 
 **What does execute do?**
-So there are certain words that if you type in the terminal will 
-execute a function. Essentially they are commands, so if you remove the permission 
+So there are certain words that if you type in the terminal will
+execute a function. Essentially they are commands, so if you remove the permission
 of execute it will not a script that can run a command. Here is a little trick
-I learned, if you create a file like `touch run`. This will will create a 
+I learned, if you create a file like `touch run`. This will will create a
 file called run, next you should open the file and insert ` ls -la`. Save the
-file and insert the file the terminal to execute the command ` ./run` 
+file and insert the file the terminal to execute the command ` ./run`
 this should run the ls -la command. If you remove the execute permission it
 will not work... at least I think
 
