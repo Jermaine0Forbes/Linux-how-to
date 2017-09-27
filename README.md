@@ -58,6 +58,7 @@ sudo adduser <insert name>
 ### how to use "Let's Encrypt" to perform SSL certification
 
 1. download Let's Encrypt
+
 ```
 sudo add-apt-repository ppa:certbot/certbot
 
@@ -67,6 +68,7 @@ sudo apt-get install python-certbot-apache
 ```
 
 2. set up the SSL certificate
+
 ```
 sudo certbot --apache -d example.com
 
@@ -79,7 +81,7 @@ sudo certbot --apache -d example.com -d www.example.com
 ```
 sudo crontab -e
 
-//in the text editor add this
+// in the text editor add this
 15 3 * * * /usr/bin/certbot renew --quiet
 
 // At 3:15am the certbot will check if the certificates need to be renewed
@@ -131,12 +133,12 @@ r|read|read a file or list a directory's contents
 w|write|write to a file or directory
 x|execute|execute a file or recurse a directory tree
 X|special execute|which is not a permission in itself but rather can be used instead of x. It applies execute permissions to directories regardless of their current permissions and applies execute permissions to a file which already has at least one execute permission bit already set (either owner, group or other). It is only really useful when used with '+' and usually in combination with the -R option for giving group or other access to a big directory tree without setting execute permission on normal files (such as text files), which would normally happen if you just used "chmod -R a+rx .", whereas with 'X' you can do "chmod -R a+rX ." instead
-s|setuid/gid| special permissions
-t|sticky| special permissions
+s|setuid/gid| allows a person to execute a program with the user and groups permmision according to [this](http://linuxg.net/how-to-set-the-setuid-and-setgid-bit-for-files-in-linux-and-unix/) source
+t|sticky| prevents a file or directory to be renamed or removed [examples](http://www.miniaturelinux.com/Linux-Access-Modes-and-Sticky-Bits-Examples.php)
 
 ### FAQ
 
-**What does execute do?**
+#### What does execute do?
 So there are certain words that if you type in the terminal will
 execute a function. Essentially they are commands, so if you remove the permission
 of execute it will not a script that can run a command. Here is a little trick
@@ -147,8 +149,16 @@ this should run the ls -la command. If you remove the execute permission it
 will not work... at least I think
 
 
-**What does the mode 's' do?**
+#### What does the mode 's' do?
 
+**reference**
+- [LinuxG](http://linuxg.net/how-to-set-the-setuid-and-setgid-bit-for-files-in-linux-and-unix/)
+- [how does the sticky bit work?](https://unix.stackexchange.com/questions/79395/how-does-the-sticky-bit-work)
+
+the **setuid** and **setgid** gives permission for the user and the group to execute
+a file so when you do a command `chmod o+s ./script` you are giving the permission  
+for anyone/others to execute the file called script. Not only that, **it will execute
+the program as if you are the user or group**
 
 
 
