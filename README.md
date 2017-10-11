@@ -3,11 +3,12 @@
 
 ## stuff I need to do eventually
 
-- [how to use chown][chown]
 - [how to use nano editor][nano]
 - [how to use vim editor][vim]
 --------------------------------------------
 
+- [how to use chgrp][chgrp]
+- [how to use chown][chown]
 - [how to switch to a different user][switchUser]
 - [how to add a new user][newUser]
 - [how to create an ssl certificate][ssl]
@@ -21,7 +22,13 @@
 - [how to install nvm/ or update node][nvm]
 - [how to use grep][grep]
 - [how to use find][find]
+- [how to list local users][local-user]
+- [how to create a group][group]
 
+[chgrp]:#how-to-use-chgrp
+[group]:#how-to-create-a-group
+[local-user]:#how-to-list-local-users
+[chown]:#how-to-use-chown
 [switchUser]:#how-to-switch-to-a-different-user
 [newUser]:#how-to-add-a-new-user
 [ssl]:#how-to-create-an-ssl-certificate
@@ -35,7 +42,85 @@
 [nvm]:#how-to-install-nvm-or-update-node
 [node]:#how-to-install-nodejs-on-ubuntu
 [setup]:#how-to-set-up-a-server-with-ubuntu
-[home]:#ubuntu-how-to
+[home]:#linux-how-to
+
+## how to use chgrp
+
+**reference**
+- [CHGRP COMMAND EXPLAINED IN LINUX WITH EXAMPLES](https://www.linuxnix.com/chgrp-command-explained-linux-examples/)
+
+[go back hom][home]
+
+## how to create a group
+
+**reference**
+- [Howto: Linux Add User To Group](https://www.cyberciti.biz/faq/howto-linux-add-user-to-group/)
+- [Linux: Show All Members of a Group](https://www.cyberciti.biz/faq/linux-list-all-members-of-a-group/)
+
+
+### how to show all members of a group
+```
+grep -i --color 'insert group name' /etc/group
+```
+
+### how to create a user and add it to a group
+```
+useradd -g insertGroup insertUser
+```
+
+### how to add existing user to a group
+```
+usermod -aG insertGroup insertUser
+```
+
+[go back home][home]
+
+## how to list local users
+
+**reference**
+- [A command to list all users? And how to add, delete, modify users?](https://askubuntu.com/questions/410244/a-command-to-list-all-users-and-how-to-add-delete-modify-users)
+
+[go back home][home]
+
+## how to use chown
+
+**reference**
+- [chown examples](http://www.thegeekstuff.com/2012/06/chown-examples)
+
+
+### how change the owner to a folder
+```
+chown jermaine <insert folder name>
+```
+### how change the group to a folder
+```
+chown :developer <insert folder name>
+```
+### how change the group and owner to a folder
+```
+chown jermaine:developer <insert folder name>
+
+// how to do this recursively
+
+chown -R jermaine:developer <insert folder name>
+```
+### how change the owner/group if owned by a different entity
+```
+chown  --from=chris jermaine <insert folder name>
+
+chown  --from=:production :development <insert folder name>
+```
+### copy the owner/group settings from one file to another
+```
+// this copies the owner and group settings from the file "file"
+// and apply it to the file "tmpfile"
+
+chown --reference=file tmpfile
+```
+
+[go back home][home]
+
+
 
 ## how to switch to a different user
 
