@@ -7,24 +7,41 @@
 - [how to use vim editor][vim]
 --------------------------------------------
 
+## chgrp, chown, chmod
+
 - [how to use chgrp][chgrp]
 - [how to use chown][chown]
-- [how to switch to a different user][switchUser]
-- [how to add a new user][newUser]
-- [how to create an ssl certificate][ssl]
 - [how to use chmod][chmod]
-- [how to setup laravel][laravel]
-- [how to setup a local host file][local]
-- [how to enable certain ports][enablePort]
-- [how to set up wordpress][wordpress]
-- [how to set up a server with ubuntu][setup]
-- [how to install node.js on ubuntu][node]
-- [how to install nvm/ or update node][nvm]
-- [how to use grep][grep]
-- [how to use find][find]
-- [how to list local users][local-user]
 - [how to create a group][group]
 
+## user
+- [how to switch to a different user][switchUser]
+- [how to add a new user][newUser]
+- [how to list local users][local-user]
+- [how to delete a user][delete-user]
+- [how to change a username][change-user]
+- [how to change a password][change-passwd]
+
+## common commands
+- [how to use grep][grep]
+- [how to use find][find]
+
+## installation
+- [how to install node.js on ubuntu][node]
+- [how to install nvm/ or update node][nvm]
+- [how to set up wordpress][wordpress]
+- [how to setup laravel][laravel]
+
+
+## other
+- [how to setup a local host file][local]
+- [how to enable certain ports][enablePort]
+- [how to set up a server with ubuntu][setup]
+- [how to create an ssl certificate][ssl]
+
+[change-passwd]:#how-to-change-a-password
+[change-user]:#how-to-change-a-username
+[delete-user]:#-how-to-delete-a-user
 [chgrp]:#how-to-use-chgrp
 [group]:#how-to-create-a-group
 [local-user]:#how-to-list-local-users
@@ -44,12 +61,59 @@
 [setup]:#how-to-set-up-a-server-with-ubuntu
 [home]:#linux-how-to
 
+
+## how to change a password
+
+```
+sudo passwd username
+```
+
+[go back home][home]
+
+## how to change a username
+
+```
+usermod -l new_username old_username
+```
+
+[go back home][home]
+
+## how to delete a user
+
+1. in the terminal
+```
+sudo userdel username
+```
+2. delete home directory of the user
+
+```
+sudo rm -r /home/username
+```
+
+[go back home][home]
+
 ## how to use chgrp
 
 **reference**
 - [CHGRP COMMAND EXPLAINED IN LINUX WITH EXAMPLES](https://www.linuxnix.com/chgrp-command-explained-linux-examples/)
 
-[go back hom][home]
+```
+chgrp <new group> <insert path to file>
+
+// changes the group name of a file or folder
+```
+```
+chgrp -R <new group> <insert path to file>
+
+// changes the group name of a file or folder recursively
+```
+```
+chgrp -f <new group> <insert path to file>
+
+// changes the group name of a file or folder forcefully
+```
+
+[go back home][home]
 
 ## how to create a group
 
@@ -61,6 +125,13 @@
 ### how to show all members of a group
 ```
 grep -i --color 'insert group name' /etc/group
+```
+**OR**
+
+```
+sudo apt install members
+
+members webmaster
 ```
 
 ### how to create a user and add it to a group
@@ -79,6 +150,13 @@ usermod -aG insertGroup insertUser
 
 **reference**
 - [A command to list all users? And how to add, delete, modify users?](https://askubuntu.com/questions/410244/a-command-to-list-all-users-and-how-to-add-delete-modify-users)
+
+this command sort of works. But, it lists a lot of other commands and the local
+users at the bottom
+
+```
+cut -d: -f1 /etc/passwd
+```
 
 [go back home][home]
 
