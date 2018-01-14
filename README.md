@@ -39,6 +39,10 @@
 - [how to set up a server with ubuntu][setup]
 - [how to create an ssl certificate][ssl]
 
+## errors
+- [Client with the currently selected authenticator does not support any combination of challenges that will satisfy the CA.][ssl-error]
+
+[ssl-error]:#how-to-authenticate-a-domain-with-ssl
 [change-passwd]:#how-to-change-a-password
 [change-user]:#how-to-change-a-username
 [delete-user]:#-how-to-delete-a-user
@@ -62,7 +66,24 @@
 [home]:#linux-how-to
 
 
-## how to change a password
+### how to authenticate a domain with ssl 
+
+**reference**
+- [lets encrypt](https://community.letsencrypt.org/t/solution-client-with-the-currently-selected-authenticator-does-not-support-any-combination-of-challenges-that-will-satisfy-the-ca/49983)
+
+**If you’re serving files for that domain out of a directory on that server**
+```
+sudo certbot --authenticator webroot --webroot-path <path to served directory> --installer apache -d <domain>
+```
+
+**If you’re not serving files out of a directory on the server**
+```
+sudo certbot --authenticator standalone --installer nginx -d <domain> --pre-hook "service apache stop" --post-hook "service apache start"
+```
+
+[go back home][home]
+
+### how to change a password
 
 ```
 sudo passwd username
@@ -70,7 +91,7 @@ sudo passwd username
 
 [go back home][home]
 
-## how to change a username
+### how to change a username
 
 ```
 usermod -l new_username old_username
@@ -78,7 +99,7 @@ usermod -l new_username old_username
 
 [go back home][home]
 
-## how to delete a user
+### how to delete a user
 
 1. in the terminal
 ```
@@ -92,7 +113,7 @@ sudo rm -r /home/username
 
 [go back home][home]
 
-## how to use chgrp
+### how to use chgrp
 
 **reference**
 - [CHGRP COMMAND EXPLAINED IN LINUX WITH EXAMPLES](https://www.linuxnix.com/chgrp-command-explained-linux-examples/)
@@ -115,7 +136,7 @@ chgrp -f <new group> <insert path to file>
 
 [go back home][home]
 
-## how to create a group
+### how to create a group
 
 **reference**
 - [Howto: Linux Add User To Group](https://www.cyberciti.biz/faq/howto-linux-add-user-to-group/)
