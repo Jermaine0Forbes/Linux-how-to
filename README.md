@@ -3,9 +3,13 @@
 
 ## stuff I need to do eventually
 
-- [how to use nano editor][nano]
 - [how to use vim editor][vim]
 --------------------------------------------
+
+
+## Editors
+- [how to use nano editor][nano]
+
 
 ## chgrp, chown, chmod
 
@@ -42,6 +46,7 @@
 ## errors
 - [Client with the currently selected authenticator does not support any combination of challenges that will satisfy the CA.][ssl-error]
 
+[nano]:#how-to-use-nano-editor
 [ssl-error]:#how-to-authenticate-a-domain-with-ssl
 [change-passwd]:#how-to-change-a-password
 [change-user]:#how-to-change-a-username
@@ -65,6 +70,26 @@
 [setup]:#how-to-set-up-a-server-with-ubuntu
 [home]:#linux-how-to
 
+
+### how to use nano editor 
+
+**reference**
+- [useful keyboard commands](https://staffwww.fullcoll.edu/sedwards/Nano/UsefulNanoKeyCommands.html)
+
+Command | Explanation
+-|-
+alt + \ | jumps to beginning of file
+alt + / | jumps to end of file
+alt + a | allows you to select multiple lines if you move up or down
+alt + ctr |  copies higlighted text
+ctr + a | jumps to end of line
+ctr + e | jumps to beginning of line
+ctr + d | delete content
+alt + r | search and replace
+ctr + k | cut  content
+ctr + u | paste content
+
+[go back home][home]
 
 ### how to authenticate a domain with ssl 
 
