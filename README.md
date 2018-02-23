@@ -3,12 +3,13 @@
 
 ## stuff I need to do eventually
 
-- [how to use vim editor][vim]
+
 --------------------------------------------
 
 
 ## Editors
 - [how to use nano editor][nano]
+- [how to use vim editor][vim]
 
 
 ## chgrp, chown, chmod
@@ -46,6 +47,8 @@
 ## errors
 - [Client with the currently selected authenticator does not support any combination of challenges that will satisfy the CA.][ssl-error]
 
+
+[vim]:#how-to-use-vim-editor
 [nano]:#how-to-use-nano-editor
 [ssl-error]:#how-to-authenticate-a-domain-with-ssl
 [change-passwd]:#how-to-change-a-password
@@ -70,6 +73,22 @@
 [setup]:#how-to-set-up-a-server-with-ubuntu
 [home]:#linux-how-to
 
+
+### how to use vim editor
+
+**reference**
+- [vim keyboard shortcuts](https://www.maketecheasier.com/vim-keyboard-shortcuts-cheatsheet/)
+
+Command|Explanation
+-|-
+esc|Gets out of the current mode into the “command mode”. All keys are bound of commands.
+i|“Insert mode” for inserting text. Keys behave as expected.
+:|“Last-line mode” where Vim expects you to enter a command such as to save the document.
+o|Begin a new line below the cursor
+u|undo the last operation.
+dd|deletes a line.
+
+[go back home][home]
 
 ### how to use nano editor 
 
