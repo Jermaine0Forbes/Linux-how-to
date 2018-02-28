@@ -80,6 +80,7 @@
 
 <details>
 <summary>View</summary>
+
 **reference**
 - [vim keyboard shortcuts](https://www.maketecheasier.com/vim-keyboard-shortcuts-cheatsheet/)
 
@@ -96,6 +97,7 @@ i|“Insert mode” for inserting text. Keys behave as expected.
 o|Begin a new line below the cursor
 u|undo the last operation.
 </details>
+
 [go back :house:][home]
 
 ### how to use nano editor 
