@@ -102,6 +102,10 @@ u|undo the last operation.
 
 ### how to use nano editor 
 
+<details>
+<summary>View
+</summary>
+
 **reference**
 - [useful keyboard commands](https://staffwww.fullcoll.edu/sedwards/Nano/UsefulNanoKeyCommands.html)
 
@@ -118,7 +122,11 @@ alt + r | search and replace
 ctr + k | cut  content
 ctr + u | paste content
 
-[go back home][home]
+</details>
+
+
+
+[go back :house:][home]
 
 ### how to authenticate a domain with ssl 
 
@@ -132,7 +140,7 @@ sudo certbot --authenticator webroot --webroot-path <path to served directory> -
 
 **If you’re not serving files out of a directory on the server**
 ```
-sudo certbot --authenticator standalone --installer nginx -d <domain> --pre-hook "service apache stop" --post-hook "service apache start"
+sudo certbot --authenticator standalone --installer apache -d <domain> --pre-hook "service apache stop" --post-hook "service apache start"
 ```
 
 [go back home][home]
