@@ -1,10 +1,7 @@
 # Linux How To
 
 
-## stuff I need to do eventually
 
-
---------------------------------------------
 
 
 ## Editors
@@ -47,6 +44,11 @@
 ## errors
 - [Client with the currently selected authenticator does not support any combination of challenges that will satisfy the CA.][ssl-error]
 
+## stuff I need to do eventually
+
+
+----
+
 
 [vim]:#how-to-use-vim-editor
 [nano]:#how-to-use-nano-editor
@@ -76,19 +78,25 @@
 
 ### how to use vim editor
 
+<details>
+<summary>View</summary>
 **reference**
 - [vim keyboard shortcuts](https://www.maketecheasier.com/vim-keyboard-shortcuts-cheatsheet/)
 
 Command|Explanation
 -|-
 esc|Gets out of the current mode into the “command mode”. All keys are bound of commands.
-i|“Insert mode” for inserting text. Keys behave as expected.
 :|“Last-line mode” where Vim expects you to enter a command such as to save the document.
+$|jumps to the end of line
+0|jumps to the beginning of line
+dd|deletes a line.
+G|jumps to the end of the file
+gg|jumps to the beginning of the file
+i|“Insert mode” for inserting text. Keys behave as expected.
 o|Begin a new line below the cursor
 u|undo the last operation.
-dd|deletes a line.
-
-[go back home][home]
+</details>
+[go back :house:][home]
 
 ### how to use nano editor 
 
