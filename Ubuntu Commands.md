@@ -2,6 +2,24 @@
 ---------------------------
 ---------------------------
 
+###
+
+<details>
+<summary>
+View content
+</summary>
+
+**reference**
+- []()
+
+```
+
+```
+
+</details>
+
+[go back :house:][home]
+
 
 ### sudo
 - The SuperUserDo is the most important command Linux newbies will use.

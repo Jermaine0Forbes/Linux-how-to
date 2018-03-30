@@ -33,6 +33,7 @@
 - [how to install nvm/ or update node][nvm]
 - [how to set up wordpress][wordpress]
 - [how to setup laravel][laravel]
+- [how to install phpmyadmin][phpmyadmin]
 
 
 ## other
@@ -49,7 +50,7 @@
 
 ----
 
-
+[phpmyadmin]:#how-to-install-phpmyadmin
 [vim]:#how-to-use-vim-editor
 [nano]:#how-to-use-nano-editor
 [ssl-error]:#how-to-authenticate-a-domain-with-ssl
@@ -76,13 +77,83 @@
 [home]:#linux-how-to
 
 
+
+### how to install phpmyadmin
+
+<details>
+<summary>
+View content
+</summary>
+
+**reference**
+- [Install phpMyAdmin on Ubuntu 16.04](https://www.rosehosting.com/blog/install-phpmyadmin-on-ubuntu-16-04/)
+- [How to solve the phpmyadmin not found issue after upgrading php and apache?](https://askubuntu.com/questions/387062/how-to-solve-the-phpmyadmin-not-found-issue-after-upgrading-php-and-apache)
+
+1. update linux
+
+```
+sudo apt-get update && apt-get upgrade
+```
+
+2. install phpmyadmin
+
+```
+sudo apt-get install phpmyadmin
+```
+
+3. When prompted for a web server choose **Apache2**
+
+
+
+4. In the next prompt click **yes** to configure a database for phpmyadmin
+
+
+
+5. Next, set the password and confirm the password you created to get into phpmyadmin
+
+
+6. Now add this in the terminal, I'm assuming that you are creating a link connection and then turning on phpmyadmin
+
+```
+sudo ln -s /etc/phpmyadmin/apache.conf /etc/apache2/conf-available/phpmyadmin.conf;
+sudo a2enconf phpmyadmin.conf;
+sudo service apache2 reload
+```
+
+
+7. Now you should be able to go to your site at  `http://yourIPaddress/phpmyadmin`
+
+
+#### How to change the PHPMyAdmin path name 
+
+
+1. Open up the conf file 
+
+```
+sudo nano /etc/apache2/conf-available/phpmyadmin.conf
+
+```
+
+2. On line 3, change the path name 
+
+```
+Alias /newPathName /usr/share/phpmyadmin
+```
+
+
+
+</details>
+
+[go back :house:][home]
+
+
 ### how to use vim editor
 
 <details>
-<summary>View</summary>
+<summary>View content</summary>
 
 **reference**
-- [vim keyboard shortcuts](https://www.maketecheasier.com/vim-keyboard-shortcuts-cheatsheet/)
+:link: [vim keyboard shortcuts](https://www.maketecheasier.com/vim-keyboard-shortcuts-cheatsheet/)
 
 Command|Explanation
 -|-
@@ -95,6 +166,7 @@ G|jumps to the end of the file
 gg|jumps to the beginning of the file
 i|“Insert mode” for inserting text. Keys behave as expected.
 o|Begin a new line below the cursor
+p|paste content
 u|undo the last operation.
 </details>
 
@@ -103,7 +175,7 @@ u|undo the last operation.
 ### how to use nano editor 
 
 <details>
-<summary>View
+<summary>View content
 </summary>
 
 **reference**
