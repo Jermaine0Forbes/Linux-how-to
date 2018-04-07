@@ -19,7 +19,7 @@
 ## custom commands 
 - [how to use alias][alias]
 - [create commands permanently][permanent-command]
-- [how to use bash functions]
+- [how to use bash functions][bash-functions]
 
 ## user
 - [how to switch to a different user][switchUser]
@@ -54,7 +54,7 @@
 
 
 ----
-
+[bash-functions]:#how-to-create-bash-functions
 [permanent-command]:#create-commands-permanently
 [alias]:#how-to-use-alias
 [phpmyadmin]:#how-to-install-phpmyadmin
@@ -84,6 +84,70 @@
 [home]:#linux-how-to
 
 
+### how to create bash functions
+
+<details>
+<summary>
+View content
+</summary>
+
+**reference**
+- [Bash Scripting Tutorial](https://ryanstutorials.net/bash-scripting-tutorial/bash-functions.php)
+
+
+here is what worked for me so far
+
+1. create a bin file and it into the bashrc if you haven't done it already 
+
+```
+
+mkdir ~/bin 
+
+// open up bash 
+
+
+sudo nano ~/.bashrc
+
+// now insert the code 
+
+export PATH=$PATH:~/bin
+
+```
+
+2. now create an sh file creating a function
+
+```
+nano ~/bin/hello.sh 
+
+
+//inside hello.sh 
+
+print_hello(){
+
+
+echo "hello world";
+
+}
+
+
+```
+
+
+3. make all the files executable 
+
+```
+chmod -R +x ~/bin;
+```
+
+4. now you can run the file 
+
+```
+hello.sh
+```
+
+</details>
+
+[go back :house:][home]
 
 ### create commands permanently
 
