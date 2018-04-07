@@ -367,8 +367,8 @@ Command | Explanation
 -|-
 alt + \ | jumps to beginning of file
 alt + / | jumps to end of file
-alt + a | allows you to select multiple lines if you move up or down
-alt + ctr |  copies higlighted text
+ctr + 6 | allows you to select multiple lines if you move up or down
+alt + 6 |  copies higlighted text
 ctr + a | jumps to end of line
 ctr + e | jumps to beginning of line
 ctr + d | delete content
