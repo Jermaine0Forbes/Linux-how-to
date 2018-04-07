@@ -362,6 +362,7 @@ u|undo the last operation.
 
 **reference**
 - [useful keyboard commands](https://staffwww.fullcoll.edu/sedwards/Nano/UsefulNanoKeyCommands.html)
+- [Copy (only copy, not cutting) in Nano?](https://askubuntu.com/questions/833102/copy-only-copy-not-cutting-in-nano)
 
 Command | Explanation
 -|-
