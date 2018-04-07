@@ -4,7 +4,7 @@
 
 
 
-## Editors
+## editors
 - [how to use nano editor][nano]
 - [how to use vim editor][vim]
 
@@ -15,6 +15,11 @@
 - [how to use chown][chown]
 - [how to use chmod][chmod]
 - [how to create a group][group]
+
+## custom commands 
+- [how to use alias][alias]
+- [create commands permanently][permanent-command]
+- [how to use bash functions]
 
 ## user
 - [how to switch to a different user][switchUser]
@@ -50,6 +55,8 @@
 
 ----
 
+[permanent-command]:#create-commands-permanently
+[alias]:#how-to-use-alias
 [phpmyadmin]:#how-to-install-phpmyadmin
 [vim]:#how-to-use-vim-editor
 [nano]:#how-to-use-nano-editor
@@ -75,6 +82,117 @@
 [node]:#how-to-install-nodejs-on-ubuntu
 [setup]:#how-to-set-up-a-server-with-ubuntu
 [home]:#linux-how-to
+
+
+
+### create commands permanently
+
+<details>
+<summary>
+View content
+</summary>
+
+**reference**
+- [An Introduction to Useful Bash Aliases and Functions](https://www.digitalocean.com/community/tutorials/an-introduction-to-useful-bash-aliases-and-functions)
+- [How can I create a custom terminal command (to run a script)?](https://askubuntu.com/questions/118312/how-can-i-create-a-custom-terminal-command-to-run-a-script)
+
+1. open up the `bashrc` file and put your alias command inside of it 
+
+```
+sudo nano ~/.bashrc 
+
+//inside the bashrc file add your command anywhere
+
+alias .2="cd ../../"
+```
+
+#### other option 
+
+1. create a file with some command you want
+
+```
+// create the file 
+
+nano sites 
+
+// inside sites add your specific command like this
+
+cd /etc/apache2/sites-available
+
+```
+
+2. now create a bin folder and move the file into the bin
+
+```
+// make the bin 
+
+mkdir ~/bin
+
+// move the file in the bin 
+
+mv sites ~/bin/sites
+
+```
+
+3. make the files executable 
+
+```
+sudo chmod -R +x ~/bin
+
+```
+
+4. now open up the bashrc file and  add this code 
+
+```
+// open up bash 
+
+
+sudo nano ~/.bashrc
+
+// now insert the code 
+
+export PATH=$PATH:~/bin
+```
+
+5. so this should make the `sites` command work
+
+</details>
+
+[go back :house:][home]
+
+
+### how to use alias
+
+<details>
+<summary>
+View content
+</summary>
+
+**reference**
+- [An Introduction to Useful Bash Aliases and Functions](https://www.digitalocean.com/community/tutorials/an-introduction-to-useful-bash-aliases-and-functions)
+
+Declaring aliases in bash is very straight forward. It's so easy that you should try it now.
+The alias keyword will make it alot easier to create custom commands
+`alias alias_name="command_to_run"`
+
+
+```
+// this should go back 2 folders when you type in ..2
+
+alias ..2="cd ../../"
+```
+
+
+#### if want to remove an alias 
+
+```
+unalias ..2;
+```
+
+
+</details>
+
+[go back :house:][home]
 
 
 
