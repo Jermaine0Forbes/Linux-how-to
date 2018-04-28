@@ -335,7 +335,8 @@ Alias /newPathName /usr/share/phpmyadmin
 <summary>View content</summary>
 
 **reference**
-:link: [vim keyboard shortcuts](https://www.maketecheasier.com/vim-keyboard-shortcuts-cheatsheet/)
+-[vim keyboard shortcuts](https://www.maketecheasier.com/vim-keyboard-shortcuts-cheatsheet/)
+- [Cut/copy and paste using visual selection](http://vim.wikia.com/wiki/Cut/copy_and_paste_using_visual_selection)
 
 Command|Explanation
 -|-
@@ -350,6 +351,9 @@ i|“Insert mode” for inserting text. Keys behave as expected.
 o|Begin a new line below the cursor
 p|paste content
 u|undo the last operation.
+v|Allows you to select multiple text
+d|deletes a character OR cuts selected text
+y| copies selected content 
 </details>
 
 [go back :house:][home]
