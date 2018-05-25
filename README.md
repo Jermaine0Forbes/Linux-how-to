@@ -354,6 +354,7 @@ u|undo the last operation.
 v|Allows you to select multiple text
 d|deletes a character OR cuts selected text
 y| copies selected content 
+?| finds a word in the file, and pressing **n** goes to the next word 
 </details>
 
 [go back :house:][home]
