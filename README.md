@@ -41,11 +41,16 @@
 - [how to install phpmyadmin][phpmyadmin]
 
 
+## let's encrypt 
+- [how to create an let's encrypt][ssl]
+- [how to https a domain][https-domain]
+- [how to update certbot][update-certbot]
+
 ## other
 - [how to setup a local host file][local]
 - [how to enable certain ports][enablePort]
 - [how to set up a server with ubuntu][setup]
-- [how to create an ssl certificate][ssl]
+
 
 ## errors
 - [Client with the currently selected authenticator does not support any combination of challenges that will satisfy the CA.][ssl-error]
@@ -54,6 +59,8 @@
 
 
 ----
+[update-certbot]:#how-to-update-certbot
+[https-domain]:#how-to-https-a-domain
 [bash-functions]:#how-to-create-bash-functions
 [permanent-command]:#create-commands-permanently
 [alias]:#how-to-use-alias
@@ -82,6 +89,36 @@
 [node]:#how-to-install-nodejs-on-ubuntu
 [setup]:#how-to-set-up-a-server-with-ubuntu
 [home]:#linux-how-to
+
+### how to update certbot
+<details>
+<summary>
+View Content
+</summary>
+
+```
+sudo add-apt-repository ppa:certbot/certbot
+sudo apt-get update
+sudo apt-get install certbot
+```
+</details>
+
+[go back :house:][home]
+
+
+### how to https a domain 
+
+<details>
+<summary>
+View Content
+</summary>
+
+```
+sudo certbot --apache -d <insert domain>
+```
+</details>
+
+[go back :house:][home]
 
 
 ### how to create bash functions
