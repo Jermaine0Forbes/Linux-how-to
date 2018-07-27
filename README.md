@@ -394,6 +394,24 @@ y| copies selected content
 ?| finds a word in the file, and pressing **n** goes to the next word 
 </details>
 
+#### Cut, Paste, Select
+Command|Explanation
+-|-
+v or V | Selects multiple text
+y | copies selected content 
+yy | copies current line
+p | paste content after cursor line
+P | paste content before cursor line
+V then d then p | To select text, the cut text, then paste text
+
+
+#### Navigate Document
+Command|Explanation
+-|-
+G| jumps to the end of the file
+gg| jumps to the beginning of the file
+
+
 [go back :house:][home]
 
 ### how to use nano editor 
