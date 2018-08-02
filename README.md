@@ -1,9 +1,6 @@
 # Linux How To
 
 
-
-
-
 ## editors
 - [how to use nano editor][nano]
 - [how to use vim editor][vim]
@@ -392,7 +389,7 @@ v|Allows you to select multiple text
 d|deletes a character OR cuts selected text
 y| copies selected content 
 ?| finds a word in the file, and pressing **n** goes to the next word 
-</details>
+
 
 #### Cut, Paste, Select
 Command|Explanation
