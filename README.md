@@ -407,6 +407,7 @@ Command|Explanation
 -|-
 G| jumps to the end of the file
 gg| jumps to the beginning of the file
+</details>
 
 
 [go back :house:][home]
