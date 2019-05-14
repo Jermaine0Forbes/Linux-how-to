@@ -13,7 +13,7 @@
 - [how to use chmod][chmod]
 - [how to create a group][group]
 
-## custom commands 
+## custom commands
 - [how to use alias][alias]
 - [create commands permanently][permanent-command]
 - [how to use bash functions][bash-functions]
@@ -38,7 +38,7 @@
 - [how to install phpmyadmin][phpmyadmin]
 
 
-## let's encrypt 
+## let's encrypt
 - [how to create an let's encrypt][ssl]
 - [how to https a domain][https-domain]
 - [how to update certbot][update-certbot]
@@ -93,6 +93,24 @@
 View Content
 </summary>
 
+**reference**
+- [certbot](https://certbot.eff.org/lets-encrypt/ubuntuxenial-apache)
+
+#### 1st option
+
+```
+ sudo apt-get update
+ sudo apt-get install software-properties-common
+ sudo add-apt-repository universe
+ sudo add-apt-repository ppa:certbot/certbot
+ sudo apt-get update
+ sudo apt-get install certbot python-certbot-apache
+
+```
+
+
+#### 2nd option
+
 ```
 sudo add-apt-repository ppa:certbot/certbot
 sudo apt-get update
@@ -103,7 +121,7 @@ sudo apt-get install certbot
 [go back :house:][home]
 
 
-### how to https a domain 
+### how to https a domain
 
 <details>
 <summary>
@@ -131,18 +149,18 @@ View content
 
 here is what worked for me so far
 
-1. create a bin file and it into the bashrc if you haven't done it already 
+1. create a bin file and it into the bashrc if you haven't done it already
 
 ```
 
-mkdir ~/bin 
+mkdir ~/bin
 
-// open up bash 
+// open up bash
 
 
 sudo nano ~/.bashrc
 
-// now insert the code 
+// now insert the code
 
 export PATH=$PATH:~/bin
 
@@ -151,10 +169,10 @@ export PATH=$PATH:~/bin
 2. now create an sh file creating a function
 
 ```
-nano ~/bin/hello.sh 
+nano ~/bin/hello.sh
 
 
-//inside hello.sh 
+//inside hello.sh
 
 print_hello(){
 
@@ -167,13 +185,13 @@ echo "hello world";
 ```
 
 
-3. make all the files executable 
+3. make all the files executable
 
 ```
 chmod -R +x ~/bin;
 ```
 
-4. now you can run the file 
+4. now you can run the file
 
 ```
 hello.sh
@@ -194,24 +212,24 @@ View content
 - [An Introduction to Useful Bash Aliases and Functions](https://www.digitalocean.com/community/tutorials/an-introduction-to-useful-bash-aliases-and-functions)
 - [How can I create a custom terminal command (to run a script)?](https://askubuntu.com/questions/118312/how-can-i-create-a-custom-terminal-command-to-run-a-script)
 
-1. open up the `bashrc` file and put your alias command inside of it 
+1. open up the `bashrc` file and put your alias command inside of it
 
 ```
-sudo nano ~/.bashrc 
+sudo nano ~/.bashrc
 
 //inside the bashrc file add your command anywhere
 
 alias .2="cd ../../"
 ```
 
-#### other option 
+#### other option
 
 1. create a file with some command you want
 
 ```
-// create the file 
+// create the file
 
-nano sites 
+nano sites
 
 // inside sites add your specific command like this
 
@@ -222,32 +240,32 @@ cd /etc/apache2/sites-available
 2. now create a bin folder and move the file into the bin
 
 ```
-// make the bin 
+// make the bin
 
 mkdir ~/bin
 
-// move the file in the bin 
+// move the file in the bin
 
 mv sites ~/bin/sites
 
 ```
 
-3. make the files executable 
+3. make the files executable
 
 ```
 sudo chmod -R +x ~/bin
 
 ```
 
-4. now open up the bashrc file and  add this code 
+4. now open up the bashrc file and  add this code
 
 ```
-// open up bash 
+// open up bash
 
 
 sudo nano ~/.bashrc
 
-// now insert the code 
+// now insert the code
 
 export PATH=$PATH:~/bin
 ```
@@ -281,7 +299,7 @@ alias ..2="cd ../../"
 ```
 
 
-#### if want to remove an alias 
+#### if want to remove an alias
 
 ```
 unalias ..2;
@@ -340,17 +358,17 @@ sudo service apache2 reload
 7. Now you should be able to go to your site at  `http://yourIPaddress/phpmyadmin`
 
 
-#### How to change the PHPMyAdmin path name 
+#### How to change the PHPMyAdmin path name
 
 
-1. Open up the conf file 
+1. Open up the conf file
 
 ```
 sudo nano /etc/apache2/conf-available/phpmyadmin.conf
 
 ```
 
-2. On line 3, change the path name 
+2. On line 3, change the path name
 
 ```
 Alias /newPathName /usr/share/phpmyadmin
@@ -387,15 +405,15 @@ p|paste content
 u|undo the last operation.
 v|Allows you to select multiple text
 d|deletes a character OR cuts selected text
-y| copies selected content 
-?| finds a word in the file, and pressing **n** goes to the next word 
+y| copies selected content
+?| finds a word in the file, and pressing **n** goes to the next word
 
 
 #### Cut, Paste, Select
 Command|Explanation
 -|-
 v or V | Selects multiple text
-y | copies selected content 
+y | copies selected content
 yy | copies current line
 p | paste content after cursor line
 P | paste content before cursor line
@@ -412,7 +430,7 @@ gg| jumps to the beginning of the file
 
 [go back :house:][home]
 
-### how to use nano editor 
+### how to use nano editor
 
 <details>
 <summary>View content
@@ -441,10 +459,12 @@ ctr + u | paste content
 
 [go back :house:][home]
 
-### how to authenticate a domain with ssl 
+### how to authenticate a domain with ssl
 
 **reference**
 - [lets encrypt](https://community.letsencrypt.org/t/solution-client-with-the-currently-selected-authenticator-does-not-support-any-combination-of-challenges-that-will-satisfy-the-ca/49983)
+- [Solution: Client with the currently selected authenticator does not support any combination of challenges that will satisfy the CA](https://community.letsencrypt.org/t/solution-client-with-the-currently-selected-authenticator-does-not-support-any-combination-of-challenges-that-will-satisfy-the-ca/49983)
+- [How to stop using TLS-SNI-01 with Certbot](https://community.letsencrypt.org/t/how-to-stop-using-tls-sni-01-with-certbot/83210)
 
 **If you’re serving files for that domain out of a directory on that server**
 ```
