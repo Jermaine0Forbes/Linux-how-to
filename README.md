@@ -48,6 +48,9 @@
 - [how to enable certain ports][enablePort]
 - [how to set up a server with ubuntu][setup]
 
+## root
+- [how to look into a directory without having a permission][root-permission]
+
 
 ## errors
 - [Client with the currently selected authenticator does not support any combination of challenges that will satisfy the CA.][ssl-error]
@@ -56,6 +59,7 @@
 
 
 ----
+[root-permission]:#how-to-look-into-a-directory-without-having-a-permission
 [update-certbot]:#how-to-update-certbot
 [https-domain]:#how-to-https-a-domain
 [bash-functions]:#how-to-create-bash-functions
@@ -86,6 +90,31 @@
 [node]:#how-to-install-nodejs-on-ubuntu
 [setup]:#how-to-set-up-a-server-with-ubuntu
 [home]:#linux-how-to
+
+
+
+### how to look into a directory without having a permission
+
+<details>
+<summary>
+View content
+</summary>
+
+
+**reference**
+- [cd into directory without having permission](https://stackoverflow.com/questions/8221820/cd-into-directory-without-having-permission)
+
+```
+sudo su
+
+// This command give you root privilege so now you don't have to worry about
+// any permissions blocking you
+```
+
+</details>
+
+[go back :house:][home]
+
 
 ### how to update certbot
 <details>
