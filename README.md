@@ -18,6 +18,13 @@
 - [create commands permanently][permanent-command]
 - [how to use bash functions][bash-functions]
 
+## ufw
+- [how to add a port number][allow-port]
+- [how to show the list of rules][list-ports]
+- [how to deny a rule/port][deny-port]
+- [how to delete a rule/port][delete-port]
+
+
 ## user
 - [how to switch to a different user][switchUser]
 - [how to add a new user][newUser]
@@ -55,10 +62,11 @@
 ## errors
 - [Client with the currently selected authenticator does not support any combination of challenges that will satisfy the CA.][ssl-error]
 
-## stuff I need to do eventually
+
 
 
 ----
+[allow-port]:#how-to-add-a-port-number
 [root-permission]:#how-to-look-into-a-directory-without-having-a-permission
 [update-certbot]:#how-to-update-certbot
 [https-domain]:#how-to-https-a-domain
@@ -90,7 +98,67 @@
 [node]:#how-to-install-nodejs-on-ubuntu
 [setup]:#how-to-set-up-a-server-with-ubuntu
 [home]:#linux-how-to
+[list-ports]:#how-to-show-the-list-of-rules
+[deny-port]:#how-to-deny-a-port
 
+
+### how to deny a port
+
+<details>
+<summary>
+View Content
+</summary>
+
+**reference**
+- [UFW](https://help.ubuntu.com/community/UFW)
+
+```
+sudo ufw status numbered
+
+sudo ufw delete 4
+```
+
+</details>
+
+[go back :house:][home]
+
+### how to show the list of rules
+
+<details>
+<summary>
+View Content
+</summary>
+
+**reference**
+- [UFW](https://help.ubuntu.com/community/UFW)
+
+```
+sudo ufw status numbered
+```
+
+</details>
+
+[go back :house:][home]
+
+
+
+### how to add a port number
+
+<details>
+<summary>
+View Content
+</summary>
+
+**reference**
+- [UFW](https://help.ubuntu.com/community/UFW)
+
+```
+sudo ufw allow 1337
+```
+
+</details>
+
+[go back :house:][home]
 
 
 ### how to look into a directory without having a permission
