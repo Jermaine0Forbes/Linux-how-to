@@ -5,7 +5,6 @@
 - [how to use nano editor][nano]
 - [how to use vim editor][vim]
 
-
 ## chgrp, chown, chmod
 
 - [how to use chgrp][chgrp]
@@ -54,6 +53,7 @@
 - [how to setup a local host file][local]
 - [how to enable certain ports][enablePort]
 - [how to set up a server with ubuntu][setup]
+- [how to change the timezone][set-timezone]
 
 ## root
 - [how to look into a directory without having a permission][root-permission]
@@ -62,10 +62,9 @@
 ## errors
 - [Client with the currently selected authenticator does not support any combination of challenges that will satisfy the CA.][ssl-error]
 
-
-
-
 ----
+[set-time][how-to-change-the-timezone]
+[delete-port]:#how-to-delete-a-port
 [allow-port]:#how-to-add-a-port-number
 [root-permission]:#how-to-look-into-a-directory-without-having-a-permission
 [update-certbot]:#how-to-update-certbot
@@ -102,7 +101,39 @@
 [deny-port]:#how-to-deny-a-port
 
 
-### how to deny a port
+### how to change the timezone
+
+<details>
+<summary>
+View Content
+</summary>
+
+**reference**
+- [set timezone](https://www.tecmint.com/set-time-timezone-and-synchronize-time-using-timedatectl-command/)
+
+1. first list the available timezones
+```
+timedatectl list-timezones
+```
+
+2. find the one you want to use and set it
+
+```
+timedatectl set-timezone "America/New_York"
+
+```
+
+3. if you want to change it back to UTC do this
+
+```
+timedatectl set-timezone UTC
+```
+
+</details>
+
+[go back :house:][home]
+
+### how to delete a port
 
 <details>
 <summary>
@@ -116,6 +147,27 @@ View Content
 sudo ufw status numbered
 
 sudo ufw delete 4
+```
+
+</details>
+
+[go back :house:][home]
+
+
+### how to deny a port
+
+<details>
+<summary>
+View Content
+</summary>
+
+**reference**
+- [UFW](https://help.ubuntu.com/community/UFW)
+
+```
+sudo ufw status numbered
+
+sudo ufw deny 4
 ```
 
 </details>
@@ -329,8 +381,9 @@ alias .2="cd ../../"
 nano sites
 
 // inside sites add your specific command like this
+// Note: its important to add a semi-colon at the end
 
-cd /etc/apache2/sites-available
+cd /etc/apache2/sites-available;
 
 ```
 
