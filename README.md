@@ -53,7 +53,7 @@
 - [how to setup a local host file][local]
 - [how to enable certain ports][enablePort]
 - [how to set up a server with ubuntu][setup]
-- [how to change the timezone][set-timezone]
+- [how to change the timezone][set-time]
 
 ## root
 - [how to look into a directory without having a permission][root-permission]
