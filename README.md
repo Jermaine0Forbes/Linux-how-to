@@ -63,7 +63,7 @@
 - [Client with the currently selected authenticator does not support any combination of challenges that will satisfy the CA.][ssl-error]
 
 ----
-[set-time][how-to-change-the-timezone]
+[set-time]:#how-to-change-the-timezone
 [delete-port]:#how-to-delete-a-port
 [allow-port]:#how-to-add-a-port-number
 [root-permission]:#how-to-look-into-a-directory-without-having-a-permission
