@@ -1,5 +1,8 @@
 # Linux How To
 
+## phpmyadmin
+- [how to change the url][change-url]
+- [enable authentication page][php-auth-page]
 
 ## editors
 - [how to use nano editor][nano]
@@ -63,6 +66,7 @@
 - [Client with the currently selected authenticator does not support any combination of challenges that will satisfy the CA.][ssl-error]
 
 ----
+[change-url]:#how-to-change-the-url
 [set-time]:#how-to-change-the-timezone
 [delete-port]:#how-to-delete-a-port
 [allow-port]:#how-to-add-a-port-number
@@ -99,7 +103,81 @@
 [home]:#linux-how-to
 [list-ports]:#how-to-show-the-list-of-rules
 [deny-port]:#how-to-deny-a-port
+[php-auth-page]:#enable-authentication-page
 
+
+### enable authentication page
+
+<details>
+<summary>
+View Content
+</summary>
+
+**reference**
+- [How To Install and Secure phpMyAdmin on Ubuntu 16.04](https://www.digitalocean.com/community/tutorials/how-to-install-and-secure-phpmyadmin-on-ubuntu-16-04)
+
+
+1. create an .htaccess file and add this
+```
+sudo vim  /usr/share/phpmyadmin/.htaccess
+
+...
+AuthType Basic
+AuthName "Restricted Files"
+AuthUserFile /etc/phpmyadmin/.htpasswd
+Require valid-user
+```
+
+2. now create the .htpasswd for the .htaccess
+
+```
+sudo htpasswd -c /etc/phpmyadmin/.htpasswd insertUsername
+
+// after that it will ask you for a password
+```
+
+3. now restart it
+
+```
+sudo service apache2 restart
+```
+
+</details>
+
+[go back :house:][home]
+
+
+### how to change the url
+
+<details>
+<summary>
+View Content
+</summary>
+
+**reference**
+- [How to Change and Secure Default PhpMyAdmin Login URL](https://www.tecmint.com/change-secure-phpmyadmin-login-url-page/)
+
+1. vim inside apache.conf
+```
+sudo vim /etc/phpmyadmin/apache.conf
+```
+
+2. in the file change the alias which originally has `/phpmyadmin`
+
+```
+# Alias /phpmyadmin /usr/share/phpmyadmin
+Alias /mynewadmin /usr/share/phpmyadmin
+```
+
+3. now reload apache2
+
+```
+sudo service apache2 reload
+```
+
+</details>
+
+[go back :house:][home]
 
 ### how to change the timezone
 
