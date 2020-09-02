@@ -65,6 +65,18 @@
 ## errors
 - [Client with the currently selected authenticator does not support any combination of challenges that will satisfy the CA.][ssl-error]
 
+## other 
+- cat
+- head 
+- tail 
+- less
+- tar 
+- sed 
+- awk 
+- sort
+
+
+
 ----
 [change-url]:#how-to-change-the-url
 [set-time]:#how-to-change-the-timezone
