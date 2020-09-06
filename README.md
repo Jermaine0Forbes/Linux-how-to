@@ -118,7 +118,7 @@
 [php-auth-page]:#enable-authentication-page
 
 
-### how to kill a port number for node
+### Error: listen EADDRINUSE: address already in use
 
 <details>
 <summary>
@@ -127,6 +127,8 @@ View Content
 
 **reference**
 - [[nodemon] app crashed - waiting for file changes before starting](https://stackoverflow.com/questions/58605392/port-3000-is-already-in-use-nodemon-app-crashed-waiting-for-file-changes-bef)
+- [Nodemon: Error: listen EADDRINUSE: address already in use :::5000
+](https://stackoverflow.com/questions/61181302/nodemon-error-listen-eaddrinuse-address-already-in-use-5000)
 
 ```
 lsof -i :3000 -t | xargs kill
