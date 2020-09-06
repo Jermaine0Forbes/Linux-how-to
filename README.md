@@ -118,6 +118,25 @@
 [php-auth-page]:#enable-authentication-page
 
 
+### how to kill a port number for node
+
+<details>
+<summary>
+View Content
+</summary>
+
+**reference**
+- [[nodemon] app crashed - waiting for file changes before starting](https://stackoverflow.com/questions/58605392/port-3000-is-already-in-use-nodemon-app-crashed-waiting-for-file-changes-bef)
+
+```
+lsof -i :3000 -t | xargs kill
+```
+
+</details>
+
+[go back :house:][home]
+
+
 ### enable authentication page
 
 <details>
